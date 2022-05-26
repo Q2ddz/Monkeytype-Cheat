@@ -8,6 +8,6 @@ Download the installer
 If you change install dir then make sure to change the dir inside main.py (LINE 41)
 
 run main.py and install any needed imports
-[https://youtu.be/7nEp34q_EdU](https://www.youtube.com/watch?v=7nEp34q_EdU)
+https://www.youtube.com/watch?v=7nEp34q_EdU
 Shows install more in depth
 
