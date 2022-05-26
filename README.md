@@ -6,6 +6,10 @@ A python based cheat for monkeytype
 
 
 # Setup
+
+https://www.youtube.com/watch?v=Lrbqbc1OJYY
+Or use the directions bellow
+
 Download and install https://github.com/UB-Mannheim/tesseract/wiki
 set cornermode to true and get the locations on your screen that you want to screenshot.
 then turn cornermode off and screenshot mode on to see the screenshot taken
