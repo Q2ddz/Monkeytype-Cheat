@@ -5,6 +5,9 @@ from pytesseract import pytesseract
 import os
 import win32api
 import json
+import sys
+import requests
+from pathlib import Path
 
 pyautogui.FAILSAFE= True
 f = open('screenshot_cords.json')
@@ -56,6 +59,51 @@ def fix_text():
     for i in lst1:
         str1+=i+" "
     return str1
+
+os.system("cls")
+while(True):
+    if os.path.exists("tesseract/tesseract.exe"):
+        print("Tesseract installed")
+        time.sleep(1)
+        os.system("cls")
+        break
+    else:
+        print("No Tesseract build found installing one now")
+        time.sleep(2)
+        os.system("cls")
+        if os.path.isdir("tesseract"):
+            pass
+        else:
+            os.mkdir("tesseract")
+
+        if os.path.exists("tesseract_installer.exe"):
+            print("Tesseract installer already downloaded")
+        else:
+            link = "https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.1.0.20220510.exe"
+            file_name = "tesseract_installer.exe"
+            with open(file_name, "wb") as f:
+                print("Downloading %s" % file_name)
+                response = requests.get(link, stream=True)
+                total_length = response.headers.get('content-length')
+                if total_length is None:
+                    f.write(response.content)
+                else:
+                    dl = 0
+                    total_length = int(total_length)
+                    for data in response.iter_content(chunk_size=4096):
+                        dl += len(data)
+                        f.write(data)
+                        done = int(50 * dl / total_length)
+                        sys.stdout.write("\r[%s%s]" % ('=' * done, ' ' * (50-done)) )
+                        sys.stdout.flush()
+            time.sleep(1)
+            os.system("cls")
+        path = Path(__file__).parent.absolute()
+        print(f"Tesseract installer will open shortly please\nuse {path}\\tesseract as the install path")
+        os.system("tesseract_installer.exe")
+        input("\n\nPress enter once you have installed tesseract")
+
+
 
 os.system('cls')
 print("1. Setup\n2. Start")
