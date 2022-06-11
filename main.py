@@ -102,6 +102,9 @@ elif cmd == 2:
         os.system('python main.py')
     os.system('cls')
     goal_wpm = float(input("Enter delay\n> "))
+    if goal_wpm == 0:
+        os.system("cls")
+        sleep_del = float(input("Rescan Delay\n> "))
     print("Saved cords:")
     print(f"  [x1 {data['x1']}]")
     print(f"  [y1 {data['y1']}]")
@@ -112,4 +115,8 @@ elif cmd == 2:
         print(f"Get ready {6-i}s left")
         time.sleep(1)
     while True:
-        pyautogui.write(fix_text(), interval=goal_wpm)
+        if goal_wpm == 0:
+            pyautogui.write(fix_text())
+            time.sleep(sleep_del)
+        else:
+            pyautogui.write(fix_text(), interval=goal_wpm)
