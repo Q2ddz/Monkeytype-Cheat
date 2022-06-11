@@ -6,10 +6,10 @@ If you change install dir of tesseract change it in main.py on (LINE 41)
 
 
 # Install
-You will need tesseract OCR so go to https://github.com/UB-Mannheim/tesseract/wiki and download
-the x64 install or x32 if ur a wierdo
 
-Once that is done you might need to install some dependencies with python
+The script needs tesseract OCR 
+it will auto download the installer for you and give you a new path to install the tesseract to
+
 
 After running the script select the setup option and click the two points on your screen with the text you want to scan
 NOTE any text inside the screenshot will be typed so dont include anything that you dont want typed. It is also a good
