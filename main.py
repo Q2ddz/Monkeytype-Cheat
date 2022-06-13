@@ -41,7 +41,7 @@ def screenshot():
 
 def scan_text():
     screenshot()
-    path_to_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    path_to_tesseract = os.getcwd() + r"\\tesseract\\tesseract.exe"
     image_path = r"img.png"
     img = Image.open(image_path)
     pytesseract.tesseract_cmd = path_to_tesseract
